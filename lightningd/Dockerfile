@@ -37,7 +37,7 @@ RUN set -x && \
         /usr/local/bin/ && \
     rm -rf /opt/lightningd
 
-FROM debian:stretch-slim
+FROM vtorhonen/bitcoind:0.15.1-1
 
 COPY --from=builder /usr/local/bin /usr/local/bin
 
