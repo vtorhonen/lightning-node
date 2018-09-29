@@ -27,21 +27,28 @@ RUN set -x && \
     git checkout $LIGHTNINGD_VERSION && \
     ./configure && \
     make && \
+    mkdir -p\
+        /usr/local/bin \
+        /usr/local/libexec/c-lightning && \
     cp \
         lightningd/lightningd \
+        cli/lightning-cli \
+        /usr/local/bin/ && \
+    cp \
         lightningd/lightning_channeld \
         lightningd/lightning_closingd \
         lightningd/lightning_gossipd \
         lightningd/lightning_hsmd \
         lightningd/lightning_onchaind \
         lightningd/lightning_openingd \
-        cli/lightning-cli \
-        /usr/local/bin/ && \
+        lightningd/lightning_connectd \
+        /usr/local/libexec/c-lightning && \
     rm -rf /opt/lightningd
 
 FROM vtorhonen/bitcoind:0.16.3-1
 
 COPY --from=builder /usr/local/bin /usr/local/bin
+COPY --from=builder /usr/local/libexec /usr/local/libexec
 
 RUN set -x && \
     apt-get update -qq && \
