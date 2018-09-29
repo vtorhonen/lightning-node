@@ -17,7 +17,8 @@ RUN set -x && \
         libbase58-dev \
         libsqlite3-dev \
         libgmp-dev \
-        ca-certificates && \
+        ca-certificates \
+        zlib1g-dev && \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -x && \
