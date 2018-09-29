@@ -1,5 +1,5 @@
 FROM debian:stretch-slim as builder
-ENV LIGHTNINGD_VERSION=master
+ENV LIGHTNINGD_VERSION=tags/v0.6.1
 
 RUN set -x && \
     apt-get update -qq && \
@@ -37,7 +37,7 @@ RUN set -x && \
         /usr/local/bin/ && \
     rm -rf /opt/lightningd
 
-FROM vtorhonen/bitcoind:0.15.1-1
+FROM vtorhonen/bitcoind:0.16.3-1
 
 COPY --from=builder /usr/local/bin /usr/local/bin
 
