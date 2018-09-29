@@ -6,10 +6,10 @@ RUN set -ex \
     && apt-get install -qq --no-install-recommends ca-certificates dirmngr gpg wget \
     && rm -rf /var/lib/apt/lists/*
 
-ENV BITCOIN_VERSION 0.15.1
-ENV BITCOIN_URL https://bitcoin.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1-x86_64-linux-gnu.tar.gz
-ENV BITCOIN_SHA256 387c2e12c67250892b0814f26a5a38f837ca8ab68c86af517f975a2a2710225b
-ENV BITCOIN_ASC_URL https://bitcoin.org/bin/bitcoin-core-0.15.1/SHA256SUMS.asc
+ENV BITCOIN_VERSION 0.16.3
+ENV BITCOIN_URL https://bitcoin.org/bin/bitcoin-core-${BITCOIN_VERSION}/bitcoin-${BITCOIN_VERSION}-x86_64-linux-gnu.tar.gz
+ENV BITCOIN_SHA256 5d422a9d544742bc0df12427383f9c2517433ce7b58cf672b9a9b17c2ef51e4f
+ENV BITCOIN_ASC_URL https://bitcoin.org/bin/bitcoin-core-${BITCOIN_VERSION}/SHA256SUMS.asc
 ENV BITCOIN_PGP_KEY 01EA5486DE18A882D4C2684590C8019E36C2E964
 
 RUN set -ex \
