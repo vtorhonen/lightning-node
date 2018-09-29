@@ -24,6 +24,7 @@ RUN set -x && \
     git clone https://github.com/ElementsProject/lightning.git /opt/lightningd && \
     cd /opt/lightningd && \
     git checkout $LIGHTNINGD_VERSION && \
+    ./configure && \
     make && \
     cp \
         lightningd/lightningd \
