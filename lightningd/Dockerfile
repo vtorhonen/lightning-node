@@ -1,5 +1,5 @@
 FROM debian:stretch-slim as builder
-ENV LIGHTNINGD_VERSION=tags/v0.6.1
+ENV LIGHTNINGD_VERSION=tags/v0.7.1
 
 RUN set -x && \
     apt-get update -qq && \
